@@ -263,14 +263,16 @@ input:focus {
     margin-top: 1em;
 }
 .facebook-button a {
-    background: url(../images/fb1.png) no-repeat 14px 9px #3b5998;
+	background: url(../images/微信.png) no-repeat 14px 9px #0a8627;
+	background-size: 16px;
     color: #fff;
     padding: .5em 1em .5em 3em;
     text-decoration: none;
     font-size: 14px;
 }
 .chrome-button a {
-    background: url(../images/ch1.png) no-repeat 14px 9px #dd4b39;
+	background: url(../images/QQ.png) no-repeat 14px 9px #dd4b39;
+	background-size: 16px;
     color: #FFF;
     font-size: 14px;
     padding: .5em 1em .5em 3em;
