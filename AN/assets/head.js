@@ -2,14 +2,14 @@
  * @Date        : 2020-06-15 15:03:47
  * @LastEditors : anlzou
  * @Github      : https://github.com/anlzou
- * @LastEditTime: 2020-06-15 15:05:05
+ * @LastEditTime: 2020-06-15 15:12:28
  * @FilePath    : \sparks-of-fire\Guangxi-smart-Tourism-foreground\AN\assets\head.js
  * @Describe    : 
  */
 document.writeln("<title>广西智慧旅游平台</title>");
 document.writeln("	<!-- Custom Theme files -->");
 document.writeln("	<meta name=\'viewport\' content=\'width=device-width, initial-scale=1\'>");
-document.writeln("	<meta http-equiv=\'Content-Type\' content=\'text/html; charset=utf-8\' />");
+// document.writeln("	<meta http-equiv=\'Content-Type\' content=\'text/html; charset=utf-8\' />");
 document.writeln("	<meta name=\'keywords\' content=\'Govihar Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, ");
 document.writeln("	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design\' />");
 document.writeln("	<script");
