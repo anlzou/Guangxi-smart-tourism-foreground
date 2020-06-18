@@ -128,7 +128,7 @@ var verifyFun = {
 };
 
 /**
- * Notes: 验证码滑动条
+ * Notes: 验证码登录滑动条
  * User: anlzou
  * Date: 2020/6/18
  */
@@ -139,7 +139,29 @@ verifyFun.bar({
 	height: '40',	// 盒子高
 	hsize: '16',		// 提示字体大小
 	size: '20',		// 滑动块箭头字体大小
-	diff: 5,			// 误差值
+	diff: 1,			// 误差值
+	success: function () {
+		alert('验证成功');
+		//其他业务逻辑
+	},
+	error: function () {
+		alert('验证失败！');
+		//其他业务逻辑
+	}
+});
+/**
+ * Notes: 验证码注册滑动条
+ * User: anlzou
+ * Date: 2020/6/18
+ */
+var type1 = document.getElementById('verify_type2');
+verifyFun.bar({
+	dom: type1,		// dom对象
+	width: '240',	// 盒子宽
+	height: '40',	// 盒子高
+	hsize: '16',		// 提示字体大小
+	size: '20',		// 滑动块箭头字体大小
+	diff: 1,			// 误差值
 	success: function () {
 		alert('验证成功');
 		//其他业务逻辑
