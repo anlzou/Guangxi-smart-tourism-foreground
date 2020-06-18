@@ -2,8 +2,8 @@
  * @Date        : 2020-06-13 20:49:19
  * @LastEditors : anlzou
  * @Github      : https://github.com/anlzou
- * @LastEditTime: 2020-06-14 11:36:10
- * @FilePath    : \Guangxi-smart-Tourism-foreground\README.md
+ * @LastEditTime: 2020-06-18 22:23:32
+ * @FilePath    : \sparks-of-fire\Guangxi-smart-Tourism-foreground\README.md
  * @Describe    : 
 --> 
 # 广西智慧旅游平台-Web前端
@@ -14,10 +14,9 @@
 
 ## 文件夹说明
 > ### AN/
-> ### YU/
 
 静态代码
 
 > ### package/
 
-模板
+模板、素材
