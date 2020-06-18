@@ -2,24 +2,24 @@
 <html>
 
 <head>
-	<title>广西智慧旅游平台-巴士</title>
+	<title>广西智慧旅游平台-飞机</title>
 	<!-- Custom Theme files -->
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="keywords" content="Govihar Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
-	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+	<meta name='keywords' content='Govihar Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design' />
 	<script
-		type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+		type='application/x-javascript'> addEventListener('load', function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 	<!-- //Custom Theme files -->
-	<link href="css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
-	<link href="css/style.css" type="text/css" rel="stylesheet" media="all">
-	<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
-	<link type="text/css" rel="stylesheet" href="css/JFFormStyle-1.css" />
+	<link href='css/bootstrap.css' type='text/css' rel='stylesheet' media='all'>
+	<link href='css/style.css' type='text/css' rel='stylesheet' media='all'>
+	<link rel='stylesheet' href='css/flexslider.css' type='text/css' media='screen' />
+	<link type='text/css' rel='stylesheet' href='css/JFFormStyle-1.css' />
 	<!-- js -->
-	<script src="js/jquery.min.js"></script>
-	<script src="js/modernizr.custom.js"></script>
+	<script src='js/jquery.min.js'></script>
+	<script src='js/modernizr.custom.js'></script>
 	<!-- //js -->
-	<script type="text/javascript">
+	<script type='text/javascript'>
 		$(document).ready(function () {
 			$('#horizontalTab').easyResponsiveTabs({
 				type: 'default', //Types: default, vertical, accordion           
@@ -29,7 +29,7 @@
 		});
 	</script>
 	<!--pop-up-->
-	<script src="js/menu_jquery.js"></script>
+	<script src='js/menu_jquery.js'></script>
 	<!--//pop-up-->
 	<!-- 验证码 -->
 	<link rel="stylesheet" type="text/css" href="css/verify.slider.css" />
@@ -60,15 +60,15 @@
 				<div class="top-nav">
 					<span class="menu"><img src="images/menu.png" alt="" /></span>
 					<ul class="nav1">
-						<li><a href="aircraft.html">飞机</a></li>
+						<li class="active"><a>飞机</a></li>
 						<li><a href="trains.html">火车</a></li>
-						<li class="active"><a>巴士</a></li>
+						<li><a href="bus.html">巴士</a></li>
 						<li><a href="hotels.html">住宿</a></li>
 						<!-- <li><a href="flights-hotels.html">航班+住房</a></li> -->
 						<li><a href="holidays.html">节假日</a></li>
 						<li><a href="weekend.html">周末假期</a></li>
 						<li><a href="foods.html">美食</a></li>
-						<li><a href="index.html">热门推荐</a></li>
+						<li><a href="deals.html">热门推荐</a></li>
 					</ul>
 					<div class="clearfix"> </div>
 					<!-- script-for-menu -->
@@ -137,7 +137,7 @@
 	<!--//header-->
 
 	<!-- banner -->
-	<div class="banner bus-banner">
+	<div class="banner">
 		<!-- container -->
 		<div class="container">
 			<div class="col-md-4 banner-left">
@@ -146,27 +146,27 @@
 						<ul class="slides">
 							<li>
 								<div class="slider-info">
-									<img src="images/5.jpg" alt="">
+									<img src="images/1.jpg" alt="">
 								</div>
 							</li>
 							<li>
 								<div class="slider-info">
-									<img src="images/6.jpg" alt="">
+									<img src="images/2.jpg" alt="">
 								</div>
 							</li>
 							<li>
 								<div class="slider-info">
-									<img src="images/7.jpg" alt="">
+									<img src="images/3.jpg" alt="">
 								</div>
 							</li>
 							<li>
 								<div class="slider-info">
-									<img src="images/8.jpg" alt="">
+									<img src="images/4.jpg" alt="">
 								</div>
 							</li>
 							<li>
 								<div class="slider-info">
-									<img src="images/6.jpg" alt="">
+									<img src="images/2.jpg" alt="">
 								</div>
 							</li>
 						</ul>
@@ -174,122 +174,288 @@
 				</section>
 				<!--FlexSlider-->
 			</div>
+			<div class="copyrights">Collect from <a href="http://www.17sucai.com/">网页模板</a></div>
 			<div class="col-md-8 banner-right">
 				<div class="sap_tabs">
-					<div class="booking-info about-booking-info">
-						<h2>查询汽车票</h2>
+					<div class="booking-info">
+						<h2>查询国内和国际机票</h2>
 					</div>
 					<div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
+						<ul class="resp-tabs-list">
+							<li class="resp-tab-item" aria-controls="tab_item-0" role="tab"><span>来回</span></li>
+							<li class="resp-tab-item" aria-controls="tab_item-1" role="tab"><span>单程</span></li>
+							<div class="clearfix"></div>
+						</ul>
 						<!---->
-						<div class="facts about-facts">
-							<div class="booking-form">
-								<link rel="stylesheet" href="css/jquery-ui.css" />
-								<!---strat-date-piker---->
-								<script>
-									$(function () {
-										$("#datepicker,#datepicker1").datepicker();
-									});
-								</script>
-								<!---/End-date-piker---->
-								<!-- Set here the key for your domain in order to hide the watermark on the web server -->
+						<div class="resp-tabs-container">
+							<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
+								<div class="facts">
+									<div class="booking-form">
+										<!---strat-date-piker---->
+										<script>
+											$(function () {
+												$("#datepicker,#datepicker1").datepicker();
+											});
+										</script>
+										<!---/End-date-piker---->
+										<!-- Set here the key for your domain in order to hide the watermark on the web server -->
 
-								<div class="online_reservation">
-									<div class="b_room">
-										<div class="booking_room">
-											<div class="reservation">
-												<ul>
-													<li class="span1_of_1 desti">
-														<h5>起点车站</h5>
-														<div class="book_date">
-															<form>
-																<span class="glyphicon glyphicon-map-marker"
-																	aria-hidden="true"></span>
-																<input type="text" placeholder="起点"
-																	class="typeahead1 input-md form-control tt-input"
-																	required="">
-															</form>
-														</div>
-													</li>
-													<li class="span1_of_1 left desti">
-														<h5>目的车站</h5>
-														<div class="book_date">
-															<form>
-																<span class="glyphicon glyphicon-map-marker"
-																	aria-hidden="true"></span>
-																<input type="text" placeholder="到达"
-																	class="typeahead1 input-md form-control tt-input"
-																	required="">
-															</form>
-														</div>
-													</li>
-													<div class="clearfix"></div>
-												</ul>
-											</div>
-											<div class="reservation">
-												<ul>
-													<li class="span1_of_1">
-														<h5>启程日期</h5>
-														<div class="book_date">
-															<form>
-																<span class="glyphicon glyphicon-calendar"
-																	aria-hidden="true"></span>
-																<input type="date" value="Select date"
-																	onFocus="this.value = '';"
-																	onBlur="if (this.value == '') {this.value = 'Select date';}">
-															</form>
-														</div>
-													</li>
-													<li class="span1_of_1 left">
-														<h5>年龄 (18+)</h5>
-														<!----------start section_room----------->
-														<div class="section_room">
-															<select id="country" onChange="change_country(this.value)"
-																class="frm-field required">
-																<option value="null">1位</option>
-																<option value="null">2位</option>
-																<option value="AX">3位</option>
-																<option value="AX">4位</option>
-																<option value="AX">5位</option>
-																<option value="AX">6位</option>
-															</select>
-														</div>
-													</li>
-													<li class="span1_of_1 left">
-														<h5>年龄 (0-17)</h5>
-														<!----------start section_room----------->
-														<div class="section_room">
-															<select id="country" onChange="change_country(this.value)"
-																class="frm-field required">
-																<option value="null">0位</option>
-																<option value="null">1位</option>
-																<option value="null">2位</option>
-																<option value="AX">3位</option>
-																<option value="AX">4位</option>
-																<option value="AX">5位</option>
-																<option value="AX">6位</option>
-															</select>
-														</div>
-													</li>
-													<div class="clearfix"></div>
-												</ul>
-											</div>
-											<div class="reservation">
-												<ul>
-													<li class="span1_of_3">
-														<div class="date_btn">
-															<form>
-																<input type="submit" value="搜索">
-															</form>
-														</div>
-													</li>
-													<div class="clearfix"></div>
-												</ul>
+										<div class="online_reservation">
+											<div class="b_room">
+												<div class="booking_room">
+													<div class="reservation">
+														<ul>
+															<li class="span1_of_1 desti">
+																<h5>起飞机场</h5>
+																<div class="book_date">
+																	<form>
+																		<span class="glyphicon glyphicon-map-marker"
+																			aria-hidden="true"></span>
+																		<input type="text" placeholder="起点"
+																			class="typeahead1 input-md form-control tt-input"
+																			required="">
+																	</form>
+																</div>
+															</li>
+															<li class="span1_of_1 left desti">
+																<h5>目的机场</h5>
+																<div class="book_date">
+																	<form>
+																		<span class="glyphicon glyphicon-map-marker"
+																			aria-hidden="true"></span>
+																		<input type="text" placeholder="到达"
+																			class="typeahead1 input-md form-control tt-input"
+																			required="">
+																	</form>
+																</div>
+															</li>
+															<div class="clearfix"></div>
+														</ul>
+													</div>
+													<div class="reservation">
+														<ul>
+															<li class="span1_of_1">
+																<h5>起程日期</h5>
+																<div class="book_date">
+																	<form>
+																		<span class="glyphicon glyphicon-calendar"
+																			aria-hidden="true"></span>
+																		<input type="date" value="Select date"
+																			onFocus="this.value = '';"
+																			onBlur="if (this.value == '') {this.value = 'Select date';}">
+																	</form>
+																</div>
+															</li>
+															<li class="span1_of_1 left">
+																<h5>反程日期</h5>
+																<div class="book_date">
+																	<form>
+																		<span class="glyphicon glyphicon-calendar"
+																			aria-hidden="true"></span>
+																		<input type="date" value="Select date"
+																			onFocus="this.value = '';"
+																			onBlur="if (this.value == '') {this.value = 'Select date';}">
+																	</form>
+																</div>
+															</li>
+															<li class="span1_of_1 left adult">
+																<h5>年龄 (18+)</h5>
+																<!----------start section_room----------->
+																<div class="section_room">
+																	<select id="country"
+																		onChange="change_country(this.value)"
+																		class="frm-field required">
+																		<option value="null">1位</option>
+																		<option value="null">2位</option>
+																		<option value="AX">3位</option>
+																		<option value="AX">4位</option>
+																		<option value="AX">5位</option>
+																		<option value="AX">6位</option>
+																	</select>
+																</div>
+															</li>
+															<li class="span1_of_1 left children">
+																<h5>年龄 (0-17)</h5>
+																<!----------start section_room----------->
+																<div class="section_room">
+																	<select id="country"
+																		onChange="change_country(this.value)"
+																		class="frm-field required">
+																		<option value="null">0位</option>
+																		<option value="null">1位</option>
+																		<option value="null">2位</option>
+																		<option value="AX">3位</option>
+																		<option value="AX">4位</option>
+																		<option value="AX">5位</option>
+																		<option value="AX">6位</option>
+																	</select>
+																</div>
+															</li>
+															<br>
+															<li class="span1_of_1 economy">
+																<h5>类型</h5>
+																<!----------start section_room----------->
+																<div class="section_room">
+																	<select id="country"
+																		onChange="change_country(this.value)"
+																		class="frm-field required">
+																		<option value="null">经济舱</option>
+																		<option value="null">商务舱</option>
+																		<option value="null">头等舱</option>
+																	</select>
+																</div>
+															</li>
+															<div class="clearfix"></div>
+														</ul>
+													</div>
+													<div class="reservation">
+														<ul>
+															<li class="span1_of_3">
+																<div class="date_btn">
+																	<form>
+																		<input type="submit" value="搜索" />
+																	</form>
+																</div>
+															</li>
+															<div class="clearfix"></div>
+														</ul>
+													</div>
+												</div>
+												<div class="clearfix"></div>
 											</div>
 										</div>
-										<div class="clearfix"></div>
+										<!---->
 									</div>
 								</div>
-								<!---->
+							</div>
+							<div class="tab-2 resp-tab-content" aria-labelledby="tab_item-1">
+								<div class="facts">
+									<div class="booking-form">
+										<!---strat-date-piker---->
+										<link rel="stylesheet" href="css/jquery-ui.css" />
+										<script src="js/jquery-ui.js"></script>
+										<script>
+											$(function () {
+												$("#datepicker,#datepicker1").datepicker();
+											});
+										</script>
+
+										<!---/End-date-piker---->
+										<div class="online_reservation">
+											<div class="b_room">
+												<div class="booking_room">
+													<div class="reservation">
+														<ul>
+															<li class="span1_of_1 desti">
+																<h5>起飞机场</h5>
+																<div class="book_date">
+																	<form>
+																		<span class="glyphicon glyphicon-map-marker"
+																			aria-hidden="true"></span>
+																		<input type="text" placeholder="起点"
+																			class="typeahead1 input-md form-control tt-input"
+																			required="">
+																	</form>
+																</div>
+															</li>
+															<li class="span1_of_1 left desti">
+																<h5>目的机场</h5>
+																<div class="book_date">
+																	<form>
+																		<span class="glyphicon glyphicon-map-marker"
+																			aria-hidden="true"></span>
+																		<input type="text" placeholder="到达"
+																			class="typeahead1 input-md form-control tt-input"
+																			required="">
+																	</form>
+																</div>
+															</li>
+															<div class="clearfix"></div>
+														</ul>
+													</div>
+													<div class="reservation">
+														<ul>
+															<li class="span1_of_1">
+																<h5>起程日期</h5>
+																<div class="book_date">
+																	<form>
+																		<span class="glyphicon glyphicon-calendar"
+																			aria-hidden="true"></span>
+																		<input type="date" value="Select date"
+																			onFocus="this.value = '';"
+																			onBlur="if (this.value == '') {this.value = 'Select date';}">
+																	</form>
+																</div>
+															</li>
+															<li class="span1_of_1 left">
+																<h5>年龄 (18+)</h5>
+																<!----------start section_room----------->
+																<div class="section_room">
+																	<select id="country"
+																		onChange="change_country(this.value)"
+																		class="frm-field required">
+																		<option value="null">1位</option>
+																		<option value="null">2位</option>
+																		<option value="AX">3位</option>
+																		<option value="AX">4位</option>
+																		<option value="AX">5位</option>
+																		<option value="AX">6位</option>
+																	</select>
+																</div>
+															</li>
+															<li class="span1_of_1 left tab-children">
+																<h5>年龄 (0-17)</h5>
+																<!----------start section_room----------->
+																<div class="section_room">
+																	<select id="country"
+																		onChange="change_country(this.value)"
+																		class="frm-field required">
+																		<option value="null">0位</option>
+																		<option value="null">1位</option>
+																		<option value="null">2位</option>
+																		<option value="AX">3位</option>
+																		<option value="AX">4位</option>
+																		<option value="AX">5位</option>
+																		<option value="AX">6位</option>
+																	</select>
+																</div>
+															</li>
+															<br>
+															<li class="span1_of_1 economy">
+																<h5>类型</h5>
+																<!----------start section_room----------->
+																<div class="section_room">
+																	<select id="country"
+																		onChange="change_country(this.value)"
+																		class="frm-field required">
+																		<option value="null">经济舱</option>
+																		<option value="null">商务舱</option>
+																		<option value="null">头等舱</option>
+																	</select>
+																</div>
+															</li>
+															<div class="clearfix"></div>
+														</ul>
+													</div>
+													<div class="reservation">
+														<ul>
+															<li class="span1_of_3">
+																<div class="date_btn">
+																	<form>
+																		<input type="submit" value="搜索" />
+																	</form>
+																</div>
+															</li>
+															<div class="clearfix"></div>
+														</ul>
+													</div>
+												</div>
+												<div class="clearfix"></div>
+											</div>
+										</div>
+										<!---->
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -301,7 +467,9 @@
 	</div>
 	<!-- //banner -->
 	<div class="move-text">
-		<div class="marquee">Register your hotel with us free of cost.<a href="signup.html">Here</a></div>
+		<div class="marquee">您还没有登录，请登录后使用本平台服务。<a href="signup.html">没有账号？</a></div>
+		<!-- <div class="marquee">广告位。<a href="signup.html">详情</a></div> -->
+		<!-- <div class="marquee">推荐位！！！<a href="signup.html">详情</a></div> -->
 		<script type="text/javascript" src="js/jquery.marquee.min.js"></script>
 		<script>
 			$('.marquee').marquee({ pauseOnHover: true });
@@ -319,7 +487,7 @@
 				<div class="col-md-4 banner-bottom-grid">
 					<div class="banner-bottom-middle">
 						<a href="products.html">
-							<img src="images/b3.jpg" alt="">
+							<img src="images/train1.jpg" alt="">
 							<div class="destinations-grid-info tours">
 								<h5>Book your next Malaysia holiday!</h5>
 								<p>Integer eget aliquam nibh. Donec blandit volutpat libero id lacinia</p>
@@ -369,16 +537,18 @@
 					</div>
 				</div>
 				<div class="col-md-4 banner-bottom-grid">
-					<div class="banner-bottom-middle">
-						<a href="products.html">
-							<img src="images/b2.jpg" alt="">
-							<div class="destinations-grid-info tours">
-								<h5>Book your next Malaysia holiday!</h5>
-								<p>Integer eget aliquam nibh. Donec blandit volutpat libero id lacinia</p>
-								<p class="b-period">Book Period: Now - 7 September 2015 | Travel Period: Now - 31
-									October 2015 </p>
-							</div>
-						</a>
+					<div class="top-destinations-info">
+						<h4>Railways Quick Links</h4>
+					</div>
+					<div class="customer-grid">
+						<ul>
+							<li><a href="#">Lorem ipsum dolor sit amet consectetur</a></li>
+							<li><a href="#">Phasellus dignissim massa nisl et elementum</a></li>
+							<li><a href="#">Aliquam suscipit diam eget dolor dapibus</a></li>
+							<li><a href="#">Duis iaculis tristique mauris a aliquam</a></li>
+							<li><a href="#"> Vestibulum porta lobortis risus quis egestas</a></li>
+							<li><a href="#">Lorem ipsum dolor sit amet</a></li>
+						</ul>
 					</div>
 					<div class="top-destinations-grids">
 						<div class="top-destinations-info">
