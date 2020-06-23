@@ -1,0 +1,13 @@
+# ignore file
+
+# Default ignored files
+/workspace.xml
+
+# myself
+/target
+/.idea
+*.iml
+/lib
+
+.settings/
+.project
