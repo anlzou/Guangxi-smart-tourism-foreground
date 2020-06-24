@@ -1921,18 +1921,18 @@ span.starTextLabel {
     padding: 1em 0;
 }
 .p-right-img a{
-    background: url(../images/p1.jpg) no-repeat 0px 0px;
+    background: url(../assets/hotel/柠檬湾酒店.jpg) no-repeat 0px 0px;
     min-height: 150px;
     background-size: cover;
 	display: block;
 }
 .p-right-img1 a{
-	background: url(../images/p2.jpg) no-repeat 0px 0px;
+	background: url(../assets/hotel/桂林美天宾馆.jpg) no-repeat 0px 0px;
 	background-size: cover;
 	display: block;
 }
 .p-right-img2 a{
-	background: url(../images/p3.jpg) no-repeat 0px 0px;
+	background: url(../assets/hotel/桂林美天宾馆.jpg) no-repeat 0px 0px;
 	background-size: cover;
 	display: block;
 }
