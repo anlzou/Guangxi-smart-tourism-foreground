@@ -1932,12 +1932,27 @@ span.starTextLabel {
 	display: block;
 }
 .p-right-img2 a{
-	background: url(../assets/hotel/桂林美天宾馆.jpg) no-repeat 0px 0px;
+	background: url(../assets/hotel/桂林南星谊美酒店.jpg) no-repeat 0px 0px;
 	background-size: cover;
 	display: block;
 }
 .p-right-img3 a{
-	background: url(../images/p4.jpg) no-repeat 0px 0px;
+	background: url(../assets/hotel/桂林四建精品酒店.jpg) no-repeat 0px 0px;
+	background-size: cover;
+	display: block;
+}
+.p-right-img4 a{
+	background: url(../assets/hotel/桂林城市梦想酒店.jpg) no-repeat 0px 0px;
+	background-size: cover;
+	display: block;
+}
+.p-right-img5 a{
+	background: url(../assets/hotel/桂林美天宾馆.jpg) no-repeat 0px 0px;
+	background-size: cover;
+	display: block;
+}
+.p-right-img6 a{
+	background: url(../assets/hotel/浦江大酒店.jpg) no-repeat 0px 0px;
 	background-size: cover;
 	display: block;
 }
