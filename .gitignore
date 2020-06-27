@@ -5,7 +5,7 @@
 
 # myself
 /target
-/.idea
+**/.idea
 *.iml
 /lib
 
