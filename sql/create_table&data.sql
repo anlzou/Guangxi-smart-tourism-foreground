@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50051
 File Encoding         : 65001
 
-Date: 2020-06-27 16:20:41
+Date: 2020-06-28 10:34:46
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -1082,3 +1082,176 @@ CREATE TABLE `vip_users` (
 -- ----------------------------
 -- Records of vip_users
 -- ----------------------------
+
+-- ----------------------------
+-- Procedure structure for `qurey_city_AllCitys_scenic_spot`
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `qurey_city_AllCitys_scenic_spot`;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `qurey_city_AllCitys_scenic_spot`()
+BEGIN
+	SELECT DISTINCT scenic_spot.city AS 城市名称
+	FROM scenic_spot;
+END
+;;
+DELIMITER ;
+
+-- ----------------------------
+-- Procedure structure for `qurey_CountStarsLevelOnCity_scenic_spot`
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `qurey_CountStarsLevelOnCity_scenic_spot`;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `qurey_CountStarsLevelOnCity_scenic_spot`()
+BEGIN
+	SELECT stars AS 星级,city AS 城市,COUNT(city) AS 数量
+		FROM scenic_spot
+		WHERE stars = 2 OR stars = 3 OR stars = 4 OR stars = 5
+		GROUP BY stars,city;
+END
+;;
+DELIMITER ;
+
+-- ----------------------------
+-- Procedure structure for `qurey_CountStarsLevel_scenic_spot`
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `qurey_CountStarsLevel_scenic_spot`;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `qurey_CountStarsLevel_scenic_spot`()
+BEGIN
+	SELECT stars AS 星级,COUNT(title) AS 数量
+		FROM scenic_spot
+		WHERE stars = 2 OR stars = 3 OR stars = 4 OR stars = 5
+		GROUP BY stars;
+END
+;;
+DELIMITER ;
+
+-- ----------------------------
+-- Procedure structure for `qurey_CountTitles_scenic_spot`
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `qurey_CountTitles_scenic_spot`;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `qurey_CountTitles_scenic_spot`()
+BEGIN
+	SELECT
+		COUNT(DISTINCT scenic_spot.city) AS 城市数量
+		FROM scenic_spot;
+END
+;;
+DELIMITER ;
+
+-- ----------------------------
+-- Procedure structure for `qurey_title_address_scenic_spot`
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `qurey_title_address_scenic_spot`;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `qurey_title_address_scenic_spot`()
+BEGIN
+	SELECT title AS 景点名称,scenic_spot.address AS 地址
+		FROM scenic_spot
+		WHERE scenic_spot.address IS NOT NULL;
+END
+;;
+DELIMITER ;
+
+-- ----------------------------
+-- Procedure structure for `qurey_title_priceInfromation_IsNotNA_scenic_spot`
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `qurey_title_priceInfromation_IsNotNA_scenic_spot`;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `qurey_title_priceInfromation_IsNotNA_scenic_spot`()
+BEGIN
+	SELECT title AS 景点名称,scenic_spot.ticket_information AS 门票详情
+		FROM scenic_spot
+		WHERE ticket_information != 'NA';
+END
+;;
+DELIMITER ;
+
+-- ----------------------------
+-- Procedure structure for `qurey_title_price_PriceNotNull_scenic_spot`
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `qurey_title_price_PriceNotNull_scenic_spot`;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `qurey_title_price_PriceNotNull_scenic_spot`()
+BEGIN
+	SELECT title AS 景点名称,ticket_price AS 价格
+		FROM scenic_spot
+		WHERE ticket_price IS NOT NULL;
+END
+;;
+DELIMITER ;
+
+-- ----------------------------
+-- Procedure structure for `qurey_title_theme_scenic_spot`
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `qurey_title_theme_scenic_spot`;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `qurey_title_theme_scenic_spot`()
+BEGIN
+	SELECT title AS 景点名称,scenic_spot.theme AS 主题
+		FROM scenic_spot
+		WHERE scenic_spot.theme != 'NA';
+END
+;;
+DELIMITER ;
+
+-- ----------------------------
+-- Procedure structure for `sp_city_title_TitleByCityName_scenic_spot`
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `sp_city_title_TitleByCityName_scenic_spot`;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_city_title_TitleByCityName_scenic_spot`(IN p_city varchar(20))
+    COMMENT '参数：\r\n''百色'''
+BEGIN
+	SELECT city AS 城市,title AS 景点名称
+		FROM scenic_spot
+		WHERE city = p_city;
+END
+;;
+DELIMITER ;
+
+-- ----------------------------
+-- Procedure structure for `sp_CountTitleByCity_scenic_spot`
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `sp_CountTitleByCity_scenic_spot`;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_CountTitleByCity_scenic_spot`(IN p_city varchar(20))
+    COMMENT '用法：\r\n''百色'''
+BEGIN
+	SELECT COUNT(scenic_spot.city) AS 景点数量
+		FROM scenic_spot
+		WHERE city = p_city;
+END
+;;
+DELIMITER ;
+
+-- ----------------------------
+-- Procedure structure for `sp_title_stars_StarsValue_scenic_spot`
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `sp_title_stars_StarsValue_scenic_spot`;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_title_stars_StarsValue_scenic_spot`(IN `in_stars` int)
+    COMMENT '用法\r\n4'
+BEGIN
+	SELECT title AS 景点,stars AS 星级
+		FROM scenic_spot
+		WHERE scenic_spot.stars = in_stars;
+END
+;;
+DELIMITER ;
+
+-- ----------------------------
+-- Procedure structure for `sp_title_theme_LikeTheme_scenic_spot`
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `sp_title_theme_LikeTheme_scenic_spot`;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_title_theme_LikeTheme_scenic_spot`(IN `in_theme` varchar(20))
+    COMMENT '用法：\r\n''%避暑%'''
+BEGIN
+	SELECT title AS 景点名称,scenic_spot.theme AS 主题
+		FROM scenic_spot
+		WHERE scenic_spot.theme LIKE in_theme;
+END
+;;
+DELIMITER ;
