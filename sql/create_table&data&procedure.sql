@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50051
 File Encoding         : 65001
 
-Date: 2020-06-28 10:34:46
+Date: 2020-06-28 15:52:30
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -49,6 +49,8 @@ CREATE TABLE `login` (
 -- ----------------------------
 -- Records of login
 -- ----------------------------
+INSERT INTO `login` VALUES ('anlzou', '123456@qq.com', '123456', '2020-06-28 11:59:28', null, '127.0.0.1');
+INSERT INTO `login` VALUES ('anlzou1', '123@qq.com', '123456', '2020-06-28 15:17:14', null, '123');
 
 -- ----------------------------
 -- Table structure for `order_user_of_scenic_spots`
@@ -1067,6 +1069,7 @@ CREATE TABLE `signup` (
 -- ----------------------------
 -- Records of signup
 -- ----------------------------
+INSERT INTO `signup` VALUES ('anlzou', 'an', '12345678901', '123456@qq.com', '123456');
 
 -- ----------------------------
 -- Table structure for `vip_users`
@@ -1082,6 +1085,32 @@ CREATE TABLE `vip_users` (
 -- ----------------------------
 -- Records of vip_users
 -- ----------------------------
+
+-- ----------------------------
+-- Procedure structure for `insert_into_login`
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `insert_into_login`;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_into_login`(IN `in_username` varchar(20),IN `in_email` varchar(20),IN `in_password` varchar(20),IN `in_login_ip` varchar(20))
+    COMMENT '用法：\r\n''anlzou'',''123456@qq.com'',''123456'',''127.0.0.1'''
+BEGIN
+	INSERT INTO login VALUES(in_username,in_email,in_password,NOW(),NULL,in_login_ip);
+END
+;;
+DELIMITER ;
+
+-- ----------------------------
+-- Procedure structure for `insert_into_signup`
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `insert_into_signup`;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_into_signup`(IN `in_username` varchar(20),IN `in_pet_name` varchar(20),IN `in_telephone` varchar(20),IN `in_email` varchar(20),IN `in_password` varchar(20))
+    COMMENT '用法：\r\n''anlzou'',''an'',''12345678901'',''123456@qq.com'',''123456'''
+BEGIN
+	INSERT INTO signup VALUES(in_username,in_pet_name,in_telephone,in_email,in_password);
+END
+;;
+DELIMITER ;
 
 -- ----------------------------
 -- Procedure structure for `qurey_city_AllCitys_scenic_spot`
@@ -1197,6 +1226,21 @@ END
 DELIMITER ;
 
 -- ----------------------------
+-- Procedure structure for `sp_city_stars_title_StarsLevelOnCity_scenic_spot`
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `sp_city_stars_title_StarsLevelOnCity_scenic_spot`;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_city_stars_title_StarsLevelOnCity_scenic_spot`(IN `in_city` varchar(20),IN `in_stars` varchar(20))
+    COMMENT '用法：\r\n''百色'',4'
+BEGIN
+	SELECT city AS 城市,stars AS 星级,title AS 景点
+		FROM scenic_spot
+	WHERE city = in_city and stars = in_stars;
+END
+;;
+DELIMITER ;
+
+-- ----------------------------
 -- Procedure structure for `sp_city_title_TitleByCityName_scenic_spot`
 -- ----------------------------
 DROP PROCEDURE IF EXISTS `sp_city_title_TitleByCityName_scenic_spot`;
@@ -1207,6 +1251,22 @@ BEGIN
 	SELECT city AS 城市,title AS 景点名称
 		FROM scenic_spot
 		WHERE city = p_city;
+END
+;;
+DELIMITER ;
+
+-- ----------------------------
+-- Procedure structure for `sp_CountTitleByCityAndStars_scenic_spot`
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `sp_CountTitleByCityAndStars_scenic_spot`;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_CountTitleByCityAndStars_scenic_spot`(IN `in_city` varchar(20),IN `in_stars` varchar(20))
+    COMMENT '用法：\r\n''百色'',2'
+BEGIN
+	SELECT city AS 城市,COUNT(title) AS 数量
+		FROM scenic_spot
+	WHERE city = in_city and stars = in_stars
+	GROUP BY city;
 END
 ;;
 DELIMITER ;
