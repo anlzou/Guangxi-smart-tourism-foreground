@@ -7,6 +7,8 @@ import time
 from lxml import etree
 import requests
 
+import datetime
+
 
 headers1 = {
     'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
@@ -95,7 +97,7 @@ class Crawler(object):
                           header=False, encoding='gbk')
             else:
                 df.to_csv(file_name, mode='a', index=False, na_rep='NA',
-                          header=['title', 'hotels_result','hotels_price_restlt'], encoding='gbk')
+                          header=['title', 'hotels','hotels_price'], encoding='gbk')
         except Exception as e:
             print(traceback.format_exc())
 
@@ -118,9 +120,9 @@ def run():
     q_url = "https://www.cncn.com/piao/"
     h_url = ".htm"
 
-    for k in range(0, len(city)):   #city，爬取city[k]城市中的景点；来宾不爬，只有1页，去掉'/1s'后可爬
-        # for i in range(1, city_pages[k]+1):       #爬取每个城市所有景点，city_pages[k]为该城市存在n页
-        for i in range(1, 2):  # 爬取每个城市所有景点，city_pages[k]为该城市存在n页
+    for k in range(0, len(city)+1):   #city，爬取city[k]城市中的景点；来宾不爬，只有1页，去掉'/1s'后可爬
+        for i in range(1, city_pages[k]+1):       #爬取每个城市所有景点，city_pages[k]为该城市存在n页
+        # for i in range(1, 2):  # 爬取每个城市所有景点，city_pages[k]为该城市存在n页
             url_first = q_url +city_pinyin[k] +'/1s'+ str(i) + h_url
             html = requests.get(url_first, headers1)
             dom = etree.HTML(html.text)
@@ -143,4 +145,8 @@ def run():
 
 
 if __name__ == '__main__':
+    start = datetime.datetime.now()
     run()
+    end = datetime.datetime.now()
+    print('======================================')
+    print('Running time: %s Seconds' % (end - start))
