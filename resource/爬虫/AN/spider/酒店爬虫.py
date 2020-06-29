@@ -47,13 +47,13 @@ headers = {
 
 class Crawler(object):
 
-    def parser(self, resp):
+    def parser(self, resp,city):
         try:
             # 景点名称
             title_result = resp.html.xpath(
                 '//div[@class="list_hotel mt20"]/div/strong/text()')
             title = title_result[0] if title_result else None
-            print("=======【"+title+"】=======")
+            print("======="+city+"：【"+title+"】=======")
 
             # 酒店名称
             hotels_result = resp.html.xpath('//div[@class="text_con"]/p/text()')
@@ -81,7 +81,7 @@ class Crawler(object):
                     with open(folder_name.format(hotels_result[j]), 'wb') as f:
                         f.write(resp.content)
 
-            return title, hotels_result, hotels_price_restlt
+            return title, city, hotels_result, hotels_price_restlt
 
         except Exception as e:
             print(traceback.format_exc())
@@ -98,15 +98,15 @@ class Crawler(object):
                           header=False, encoding='gbk')
             else:
                 df.to_csv(file_name, mode='a', index=False, na_rep='NA',
-                          header=['title', 'hotels','hotels_price'], encoding='gbk')
+                          header=['title', 'city', 'hotels', 'hotels_price'], encoding='gbk')
         except Exception as e:
             print(traceback.format_exc())
 
-    def main(self, url):
+    def main(self, url,city):
         try:
             session = HTMLSession()
             resp = session.get(url, headers=headers)
-            base_data = self.parser(resp)
+            base_data = self.parser(resp,city)
             data = [base_data]
             self.save_data(data)
         except Exception as e:
@@ -123,7 +123,7 @@ def run():
 
     for k in range(0, len(city)+1):   #city，爬取city[k]城市中的景点；来宾不爬，只有1页，去掉'/1s'后可爬
         print("===========================景点城市：【"+city[k]+"】===========================")
-        for i in range(2, city_pages[k]+1):       #爬取每个城市所有景点，city_pages[k]为该城市存在n页
+        for i in range(1, city_pages[k]+1):       #爬取每个城市所有景点，city_pages[k]为该城市存在n页
         # for i in range(1, 2):  # 爬取每个城市所有景点，city_pages[k]为该城市存在n页
             url_first = q_url +city_pinyin[k] +'/1s'+ str(i) + h_url
             html = requests.get(url_first, headers1)
@@ -143,7 +143,7 @@ def run():
                 print('酒店地址：'+str_url_hotle)
 
                 crawler = Crawler()
-                crawler.main(str_url_hotle)
+                crawler.main(str_url_hotle,city[k])
 
 
 if __name__ == '__main__':
