@@ -115,13 +115,13 @@ class Crawler(object):
 
 def run():
     city = ['桂林','南宁','梧州','柳州','百色','河池','北海','防城港','贺州','玉林','贵港','钦州','崇左','来宾']
-    city_pinyin = ['guilin','nanning','wuzhou','liuzhou','baise','hechi','beihai','fangchenggang','hezhou','yulin','guigang','qinzhou','chongzuo','laibing']
+    city_pinyin = ['guilin','nanning','wuzhou','liuzhou','baise','hechi','beihai','fangchenggang','hezhou','yulin','guigang','qinzhou','chongzuo','laibin']
     city_pages = [14, 6, 5, 5, 4, 4, 4, 3, 3, 2, 2, 2, 2, 1]
 
     q_url = "https://www.cncn.com/piao/"
     h_url = ".htm"
 
-    for k in range(0, len(city)+1):   #city，爬取city[k]城市中的景点；来宾不爬，只有1页，去掉'/1s'后可爬
+    for k in range(0, len(city)):   #city，爬取city[k]城市中的景点；来宾不爬，只有1页，去掉'/1s'后可爬
         print("===========================景点城市：【"+city[k]+"】===========================")
         for i in range(1, city_pages[k]+1):       #爬取每个城市所有景点，city_pages[k]为该城市存在n页
         # for i in range(1, 2):  # 爬取每个城市所有景点，city_pages[k]为该城市存在n页
