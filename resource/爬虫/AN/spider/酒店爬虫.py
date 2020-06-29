@@ -49,15 +49,16 @@ class Crawler(object):
 
     def parser(self, resp):
         try:
-            # 酒店名称
-            hotels_result = resp.html.xpath('//div[@class="text_con"]/p/text()')
-            for i in hotels_result:
-                print(i)
-
             # 景点名称
             title_result = resp.html.xpath(
                 '//div[@class="list_hotel mt20"]/div/strong/text()')
             title = title_result[0] if title_result else None
+            print("=======【"+title+"】=======")
+
+            # 酒店名称
+            hotels_result = resp.html.xpath('//div[@class="text_con"]/p/text()')
+            for i in hotels_result:
+                print(i)
 
             # 酒店价格
             hotels_price_restlt = resp.html.xpath('//div[@class="num"]/span/b/text()')
@@ -121,7 +122,8 @@ def run():
     h_url = ".htm"
 
     for k in range(0, len(city)+1):   #city，爬取city[k]城市中的景点；来宾不爬，只有1页，去掉'/1s'后可爬
-        for i in range(1, city_pages[k]+1):       #爬取每个城市所有景点，city_pages[k]为该城市存在n页
+        print("===========================景点城市：【"+city[k]+"】===========================")
+        for i in range(2, city_pages[k]+1):       #爬取每个城市所有景点，city_pages[k]为该城市存在n页
         # for i in range(1, 2):  # 爬取每个城市所有景点，city_pages[k]为该城市存在n页
             url_first = q_url +city_pinyin[k] +'/1s'+ str(i) + h_url
             html = requests.get(url_first, headers1)
