@@ -10,26 +10,100 @@ Target Server Type    : MYSQL
 Target Server Version : 50051
 File Encoding         : 65001
 
-Date: 2020-06-29 22:13:44
+Date: 2020-07-01 15:22:59
 */
 
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for `buy_user_of_scenic_spots`
+-- Table structure for `admin`
 -- ----------------------------
-DROP TABLE IF EXISTS `buy_user_of_scenic_spots`;
-CREATE TABLE `buy_user_of_scenic_spots` (
-  `scenic_spot_name` varchar(255) NOT NULL,
+DROP TABLE IF EXISTS `admin`;
+CREATE TABLE `admin` (
+  `id` int(10) unsigned NOT NULL auto_increment,
   `username` varchar(255) NOT NULL,
-  `buy_date` datetime NOT NULL,
-  `use_date` datetime NOT NULL,
-  PRIMARY KEY  (`scenic_spot_name`),
-  KEY `username` (`username`)
+  `password` varchar(255) NOT NULL,
+  `describe` text,
+  `login_time` datetime NOT NULL,
+  `logout_time` datetime default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='管理员表，用于后台登录';
+
+-- ----------------------------
+-- Records of admin
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `bill`
+-- ----------------------------
+DROP TABLE IF EXISTS `bill`;
+CREATE TABLE `bill` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `username` varchar(255) NOT NULL,
+  `buy_scenic_spot_TorF` varchar(255) default NULL,
+  `order_scenic_spot_TorF` varchar(255) default NULL,
+  `buy_hotel_TorF` varchar(255) default NULL,
+  `order_hotel_TorF` varchar(255) default NULL,
+  `total` float default NULL,
+  `date` datetime default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='每次消费账单记录表';
+
+-- ----------------------------
+-- Records of bill
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `black_house`
+-- ----------------------------
+DROP TABLE IF EXISTS `black_house`;
+CREATE TABLE `black_house` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `username` varchar(255) NOT NULL,
+  `time_long` datetime NOT NULL,
+  `time_start` datetime NOT NULL,
+  PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of buy_user_of_scenic_spots
+-- Records of black_house
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `buy_of_hotel`
+-- ----------------------------
+DROP TABLE IF EXISTS `buy_of_hotel`;
+CREATE TABLE `buy_of_hotel` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `username` varchar(255) NOT NULL,
+  `hotel_name` varchar(255) NOT NULL,
+  `price` float NOT NULL,
+  `buy_date` datetime NOT NULL,
+  `use_date` datetime default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of buy_of_hotel
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `buy_of_scenic_spots`
+-- ----------------------------
+DROP TABLE IF EXISTS `buy_of_scenic_spots`;
+CREATE TABLE `buy_of_scenic_spots` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `username` varchar(255) NOT NULL,
+  `scenic_spot_name` varchar(255) NOT NULL,
+  `price` float NOT NULL,
+  `buy_date` datetime NOT NULL,
+  `use_date` datetime default NULL,
+  PRIMARY KEY  (`id`),
+  KEY `username` (`username`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户景点购买消费表';
+
+-- ----------------------------
+-- Records of buy_of_scenic_spots
 -- ----------------------------
 
 -- ----------------------------
@@ -760,36 +834,57 @@ INSERT INTO `hotels` VALUES ('陇瑞自然保护区周边酒店', '崇左', '金
 -- ----------------------------
 DROP TABLE IF EXISTS `login`;
 CREATE TABLE `login` (
+  `id` int(10) unsigned NOT NULL auto_increment,
   `username` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
   `login_time` datetime default NULL,
   `logout_time` datetime default NULL,
   `login_ip` varchar(255) default NULL,
-  PRIMARY KEY  (`username`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `session` varchar(255) default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='用户登录表，用来检查用户登录状态；ip地址，session等，待完善';
 
 -- ----------------------------
 -- Records of login
 -- ----------------------------
-INSERT INTO `login` VALUES ('anlzou', '123456@qq.com', '123456', '2020-06-28 11:59:28', null, '127.0.0.1');
-INSERT INTO `login` VALUES ('anlzou1', '123@qq.com', '123456', '2020-06-28 15:17:14', null, '123');
+INSERT INTO `login` VALUES ('1', 'anlzou', '2020-06-28 11:59:28', null, '127.0.0.1', null);
+INSERT INTO `login` VALUES ('2', 'anlzou1', '2020-06-28 15:17:14', null, '123', null);
 
 -- ----------------------------
--- Table structure for `order_user_of_scenic_spots`
+-- Table structure for `order_of_hotel`
 -- ----------------------------
-DROP TABLE IF EXISTS `order_user_of_scenic_spots`;
-CREATE TABLE `order_user_of_scenic_spots` (
-  `scenic_spot_name` varchar(255) NOT NULL,
+DROP TABLE IF EXISTS `order_of_hotel`;
+CREATE TABLE `order_of_hotel` (
+  `id` int(10) unsigned NOT NULL auto_increment,
   `username` varchar(255) NOT NULL,
+  `hotel_name` varchar(255) NOT NULL,
+  `price` float NOT NULL,
   `order_date` datetime NOT NULL,
-  `use_date` datetime NOT NULL,
-  PRIMARY KEY  (`scenic_spot_name`),
-  KEY `username` (`username`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `use_date` datetime default NULL,
+  PRIMARY KEY  (`id`),
+  KEY `username` USING BTREE (`username`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='用户景点预定消费表';
 
 -- ----------------------------
--- Records of order_user_of_scenic_spots
+-- Records of order_of_hotel
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `order_of_scenic_spots`
+-- ----------------------------
+DROP TABLE IF EXISTS `order_of_scenic_spots`;
+CREATE TABLE `order_of_scenic_spots` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `username` varchar(255) NOT NULL,
+  `scenic_spot_name` varchar(255) NOT NULL,
+  `price` float NOT NULL,
+  `order_date` datetime NOT NULL,
+  `use_date` datetime default NULL,
+  PRIMARY KEY  (`id`),
+  KEY `username` (`username`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户景点预定消费表';
+
+-- ----------------------------
+-- Records of order_of_scenic_spots
 -- ----------------------------
 
 -- ----------------------------
@@ -1778,12 +1873,12 @@ INSERT INTO `scenic_spot` VALUES ('玉林石嶷文塔', ' 广西·玉林 石南�
 INSERT INTO `scenic_spot` VALUES ('3D魔幻体验馆（玉林站）', ' 广西·玉林 广西省玉林市玉州区国际会展中心 ', '玉林', 'NA', '说起画展，很多人都想起在美术馆里远远地、静静地仰头观看的场景。那些高贵冷艳的画作不能拍照，更不能摸。原来，并不是所有画展都那么安静遥远，身临奇境3D画展里的画作不仅能摸，还非常欢迎你来互动，来拍照。这次展览有近70幅3D立体巨画，还分了亲子、世界名画、动物主题、魔幻主题等五大主题。\r\n“身临奇境3D画展”是起源于60年代的幻视艺术运动，打破立体绘制与二维视觉界限，让观者视觉与平衡感产生“错觉”。艺术家利用绘画中俗称的“障眼法”，再配合最新的技术，灯光折射与创新的点子，随着欣赏者观看角度的不同，所产生的视觉认知盲点与欣赏作品的心理感知也随之产生变化，其感知交融的冲突造成荒谬的美感和真实感，是一种融合透视学、设计学、几何学及心理学的艺术形式。\r\n走进神秘的侏罗纪公园，看到了从油画中走出来下棋的田螺姑娘，大白鲨从画中钻出，扮演一回美人鱼，走进的美丽雪山，神奇的幽暗城堡……这些可不是幻觉！恐龙嘴里拔牙，鲨鱼口中逃生，这些场景分分钟成为你手机里、相机中的照片。\r\n', 'NA', 'NA', 'NA', null, '376', '376', '5', null);
 
 -- ----------------------------
--- Table structure for `signup`
+-- Table structure for `users`
 -- ----------------------------
-DROP TABLE IF EXISTS `signup`;
-CREATE TABLE `signup` (
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users` (
   `username` varchar(255) NOT NULL,
-  `pet_name` varchar(255) default NULL,
+  `nickname` varchar(255) default NULL,
   `telephone` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
@@ -1791,24 +1886,9 @@ CREATE TABLE `signup` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of signup
+-- Records of users
 -- ----------------------------
-INSERT INTO `signup` VALUES ('anlzou', 'an', '12345678901', '123456@qq.com', '123456');
-
--- ----------------------------
--- Table structure for `vip_users`
--- ----------------------------
-DROP TABLE IF EXISTS `vip_users`;
-CREATE TABLE `vip_users` (
-  `username` varchar(255) NOT NULL,
-  `buy_tickets` int(11) default NULL,
-  `orders_tickets` int(11) default NULL,
-  PRIMARY KEY  (`username`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of vip_users
--- ----------------------------
+INSERT INTO `users` VALUES ('anlzou', 'an', '12345678901', '123456@qq.com', '123456');
 
 -- ----------------------------
 -- Procedure structure for `fun_Random2to5Stars_hotels`
