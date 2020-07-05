@@ -1,0 +1,14 @@
+运行环境：Pycharm
+pip命令pyecharts安装库 ，必须用低版本，新版pyecharts没有Bar ：
+pip install pyecharts==0.1.9.4 -i https://pypi.tuna.tsinghua.edu.cn/simple/
+或者：pip install pyecharts==0.1.9.4
+
+
+
+从Navicat for MySQL软件导出景点表和酒店表数据。
+
+hotel.txt和spot.txt作为输入源，需和代码在同一目录下。
+
+广西各市景点酒店平均价格.HTML文件。数据输入源在1.hotel.py输出结果中。
+
+广西各市景点酒店平均价格.HTML参考源：https://echarts.apache.org/examples/zh/editor.html?c=pie-custom
